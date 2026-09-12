@@ -1,19 +1,23 @@
 use crate::parser::Command;
 use crate::storage::Storage;
+use crate::response::Response;
 
-pub fn execute(command: Command, storage: &mut Storage) {
+pub fn execute(command: Command, storage: &mut Storage) -> Response {
     match command {
         Command::Add { key, value } => {
             storage.add(key, value);
+            Response::Ok
         }
 
         Command::Get { key } => {
             match storage.get(&key) {
-                Some(value) => println!("{}", value),
-                None => println!("Chave não encontrada"),
+                Some(value) => Response::Value(value.clone()),
+                None => Response::NotFound,
             }
         }
 
-        Command::Exit => {}
+        Command::Exit => {
+            Response::Ok
+        }
     }
 }
