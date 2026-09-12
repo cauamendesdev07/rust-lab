@@ -2,6 +2,7 @@ mod input;
 mod parser;
 mod storage;
 mod executor;
+mod response;
 
 fn main() {
     let mut storage = storage::Storage::new();
@@ -16,7 +17,13 @@ fn main() {
                             break;
                         }
 
-                        executor::execute(command, &mut storage)
+                        let response = executor::execute(command, &mut storage);
+
+                        match response {
+                            response::Response::Ok => {}
+                            response::Response::Value(value) => println!("{}", value),
+                            response::Response::NotFound => println!("Chave não encontrada"),
+                        }
                     }
                     
                     Err(error) => {
