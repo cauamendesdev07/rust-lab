@@ -1,0 +1,53 @@
+ADD cpf_cliente 52998224725
+GET cpf_cliente
+
+ADD cpf_invalido 12345678900
+ADD cpf_repetido 11111111111
+
+ADD cpf_cliente2 52998224725
+ADD cpf_cliente 52998224725
+
+GET cpf_inexistente
+
+ADD data_nascimento 2024-02-29
+GET data_nascimento
+
+ADD data_invalida 2023-02-29
+ADD data_invalida 2024-02-30
+ADD data_invalida 2024-13-01
+ADD data_invalida 2024-00-10
+ADD data_invalida 2024-01-00
+ADD data_invalida 2024-01-32
+ADD data_invalida 24-01-01
+ADD data_invalida 2024/01/01
+
+GET data_inexistente
+
+ADD temp_sala 25
+GET temp_sala
+
+ADD temp_negativa -10
+GET temp_negativa
+
+ADD temp_invalida -300
+ADD temp_invalida abc
+
+GET temp_inexistente
+
+ADD
+ADD cpf_teste
+ADD data_teste
+ADD temp_teste
+
+GET
+GET cpf_teste extra
+
+INVALIDO
+PING
+DELETE cpf_cliente
+
+ADD cpf_teste 52998224725
+ADD data_teste 2024-01-15
+ADD temp_teste 20 graus
+
+EXIT
