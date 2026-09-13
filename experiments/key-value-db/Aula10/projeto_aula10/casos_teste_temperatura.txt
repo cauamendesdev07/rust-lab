@@ -1,0 +1,19 @@
+ADD temp_sala 25
+GET temp_sala
+
+ADD temp_freezer -10
+GET temp_freezer
+
+ADD temp_zero 0
+GET temp_zero
+
+ADD temp_absoluto  -273.15
+GET temp_absoluto
+
+ADD temp_invalida -273.16
+ADD temp_invalida abc
+ADD temp_invalida 20 graus
+
+GET temp_inexistente
+
+EXIT
